@@ -1,61 +1,38 @@
-class Hillstations {
-    void famousfor() {
-        System.out.println("Hillstation is famous for its beauty.");
+class Shapes {
+    double area;
+
+    // Constructor for circle
+    Shapes(double radius) {
+        area = 3.14 * radius * radius;
+        System.out.println("Area of Circle: " + area);
     }
 
-    void famousfood() {
-        System.out.println("Hillstation has local special food.");
-    }
-}
-
-// Subclass 1
-class Manali extends Hillstations {
-    void famousfor() {
-        System.out.println("Manali is famous for snow and mountains.");
+    // Constructor for rectangle
+    Shapes(double length, double breadth) {
+        area = length * breadth;
+        System.out.println("Area of Rectangle: " + area);
     }
 
-    void famousfood() {
-        System.out.println("Manali is famous for Siddu.");
-    }
-}
-
-// Subclass 2
-class Ooty extends Hillstations {
-    void famousfor() {
-        System.out.println("Ooty is famous for tea gardens.");
+    // Method overloading for triangle
+    void area(double base, double height, String shape) {
+        if (shape.equals("triangle")) {
+            area = 0.5 * base * height;
+            System.out.println("Area of Triangle: " + area);
+        }
     }
 
-    void famousfood() {
-        System.out.println("Ooty is famous for chocolates.");
-    }
-}
-
-// Subclass 3
-class Darjeeling extends Hillstations {
-    void famousfor() {
-        System.out.println("Darjeeling is famous for tea and hills.");
+    // Method overloading for square
+    void area(int side) {
+        area = side * side;
+        System.out.println("Area of Square: " + area);
     }
 
-    void famousfood() {
-        System.out.println("Darjeeling is famous for momos.");
-    }
-}
-
-public class Main {
     public static void main(String[] args) {
+        Shapes c = new Shapes(5);              // Circle
+        Shapes r = new Shapes(4, 6);           // Rectangle
 
-        Hillstations h;
-
-        h = new Manali();
-        h.famousfor();
-        h.famousfood();
-
-        h = new Ooty();
-        h.famousfor();
-        h.famousfood();
-
-        h = new Darjeeling();
-        h.famousfor();
-        h.famousfood();
+        Shapes obj = new Shapes(1);            // Dummy object
+        obj.area(5, 4, "triangle");            // Triangle
+        obj.area(5);                           // Square
     }
 }
